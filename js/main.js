@@ -1,7 +1,18 @@
-function getGolfCoursesPromise() {
-    return fetch('https://golf-courses-api.herokuapp.com/courses/')
+function getGolf(id="") {
+    return fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
     .then(response => response.json())
-    .then(data => activities.push(data));
+}
+console.log(getGolf())
+console.log(getGolf())
+console.log(getGolf())
+
+async function thing() {
+    console.log(await getGolf())
+    console.log(await getGolf(18300))
+}
+
+async function firstRender() {
+    getGolf()
 }
 
 let activities = []
