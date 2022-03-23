@@ -1,5 +1,5 @@
-function getOneActivityPromise() {
-    return fetch("https://www.boredapi.com/api/Activity")
+function getGolfCoursesPromise() {
+    return fetch('https://golf-courses-api.herokuapp.com/courses/')
     .then(response => response.json())
     .then(data => activities.push(data));
 }
