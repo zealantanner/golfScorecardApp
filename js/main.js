@@ -2,47 +2,64 @@ function getGolf(id="") {
     return fetch(`https://golf-courses-api.herokuapp.com/courses/${id}`)
     .then(response => response.json())
 }
-console.log(getGolf())
-console.log(getGolf())
-console.log(getGolf())
 
-async function thing() {
-    console.log(await getGolf())
-    console.log(await getGolf(18300))
+let courseInfo;
+
+
+window.addEventListener('load', function () {
+    firstRender()
+})
+
+class Course {
+    constructor(name, id, image) {
+        this.name = name;
+        this.id = id;
+        this.image = image;
+    }
+    async init() {
+        this.data = (await getGolf(this.id)).data
+    }
 }
+
+const courses = []
 
 async function firstRender() {
-    getGolf()
-}
 
-let activities = []
-async function getMultipleActivities(times) {
-    activities = []
-    for(let i=0;i<times;i++) {
-        const activity = getOneActivityPromise()
-        activities.push(await activity)
+    courseInfo = (await getGolf()).courses
+    console.log(courseInfo)
+    for(let i=0;i<courseInfo.length;i++) {
+        let temp = new Course(courseInfo[i].name,courseInfo[i].id,courseInfo[i].image)
+        await temp.init()
+        courses.push(temp)
     }
-    return activities
-}
-
-async function render(input) {
-    activities = getMultipleActivities(input)
-    console.log(activities)
-    let activitiesHtml = 'hi'
-    for(let i = 0; i < activities.length; i++) {
-        activitiesHtml += `<div id="${activities[i].activity}">${activities[i].activity}</div>`;
-    }
-
-    document.querySelector('#activities').innerHTML = activitiesHtml;
-}
+    console.log(courses)
 
 
 
-function displayActivities(list) {
-    let listHtml = 'hi'
-    for(let i = 0; i < list.length; i++) {
-        listHtml += `<div id="${list[i].name}">${list[i].name}</div>`;
+
+    for(let i=0;i<courses.length;i++) {
+        $('#contentContainer').append(`
+            <div class="card" id="${courseInfo[i].id}">
+                <img src="${courseInfo[i].image}">
+                <h1>${courseInfo[i].name}</h1>
+                <div class="buttons">
+                    <button onclick="selectCourse(this)">Select Course</button>
+                </div>
+            </div>
+        `)
     }
 
-    document.querySelector('#activities').innerHTML = listHtml;
+    for(let i=0;i<courses.length;i++) {
+
+    }
+
 }
+
+
+async function selectCourse(that) {
+    // $(that).parent().remove()
+    let thing = (await getGolf(18300))
+    console.log(thing)
+}
+
+

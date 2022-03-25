@@ -4,20 +4,26 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: blue;
+}
+
 #contentContainer {
   background-color: blue;
   height: 100vh;
   width: 100vw;
   display: flex;
+  align-items: space-evenly;
   align-items: center;
   justify-content: space-evenly;
+  flex-flow: wrap;
 }
 #contentContainer .card {
   display: flex;
   flex-flow: column;
-  background-color: red;
+  background-color: #8d94fd;
   width: 300px;
-  min-height: 300px;
+  height: max-content;
   margin: 5px;
   align-items: center;
   padding-bottom: 10px;
@@ -32,15 +38,17 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li {
 #contentContainer .card h1 {
   padding: 5px 0;
   text-align: center;
+  margin: 0 10px;
 }
 #contentContainer .card button {
   width: fit-content;
   border: 1px black solid;
   cursor: pointer;
   border-radius: 7px;
+  background-color: #98d1ff;
 }
 #contentContainer .card button:hover {
-  background-color: red;
+  background-color: #49adff;
 }
 
 /*# sourceMappingURL=style.css.map */

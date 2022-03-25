@@ -5,23 +5,26 @@ html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li {
 }
 
 $cardBorder: 20px;
-
+body {
+    background-color: blue;
+}
 #contentContainer {
     background-color: blue;
     height: 100vh;
     width: 100vw;
     display: flex;
+    align-items: space-evenly;
     align-items: center;
     justify-content: space-evenly;
+    flex-flow: wrap;
     .card {
         display: flex;
         flex-flow: column;
-        background-color: red;
+        background-color: rgb(141, 148, 253);
         width: 300px;
-        min-height: 300px; 
+        height: max-content;
         margin: 5px;
         align-items: center;
-        // padding: 5px;
         padding-bottom: 10px;
         border-radius: $cardBorder;
         img {
@@ -33,14 +36,16 @@ $cardBorder: 20px;
         h1 {
             padding: 5px 0;
             text-align: center;
+            margin: 0 10px;
         }
         button {
             width: fit-content;
             border: 1px black solid;
             cursor: pointer;
             border-radius: 7px;
+            background-color: rgb(152, 209, 255);
             &:hover {
-                background-color: red;
+                background-color: rgb(73, 173, 255);
             }
         }
         
