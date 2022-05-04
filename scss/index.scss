@@ -1,0 +1,144 @@
+html, body, h1, h2, h3, h4, h5, h6, p, div, ol, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+$cardBorder: 20px;
+.hidden {
+    display: none;
+}
+body {
+    position: relative;
+    background-color: blue;
+    #image {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        z-index: -1;
+    }
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+    align-items: space-evenly;
+    #location {
+        margin: 2vh 0;
+        font-size: 3em;
+        border-radius: 300px;
+        background-color: white;
+        padding: 10px 20px;
+    }
+    #contentContainer {
+        margin-top: 100px;
+        width: 100vw;
+        display: flex;
+        align-items: space-evenly;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-flow: wrap;
+        .card {
+            display: flex;
+            flex-flow: column;
+            background-color: rgb(141, 148, 253);
+            width: 300px;
+            height: max-content;
+            margin: 5px;
+            align-items: center;
+            padding-bottom: 10px;
+            border-radius: $cardBorder;
+            filter: drop-shadow(0 0 0.75rem black);
+            img {
+                background-color: blue;
+                width: 300px;
+                border-top-left-radius: $cardBorder;
+                border-top-right-radius: $cardBorder;
+            }
+            h1 {
+                padding: 5px 0;
+                text-align: center;
+                margin: 0 10px;
+                font-size: 2em;
+            }
+            button {
+                width: fit-content;
+                border: 1px black solid;
+                cursor: pointer;
+                border-radius: 7px;
+                background-color: rgb(152, 209, 255);
+                &:hover {
+                    background-color: rgb(73, 173, 255);
+                }
+            }
+        }
+    }
+    table {
+        background-color: white;
+        tr {
+            th {
+            }
+            td {
+            }
+            #initials {
+                text-orientation: upright;
+                writing-mode: vertical-lr;
+                font-size: .7em;
+            }
+            .inputVal {
+                padding: 0;
+                input {
+                    // height: 20px;
+                }
+            }
+            .playerName {
+                input {
+                    height: 30px;
+                }
+            }
+            .val {
+                padding: 0;
+                input {
+                    width: 30px;
+                    height: 30px;
+                    margin: 0;
+                }
+            }
+            th, td {
+                text-align: center;
+                input {
+                    border: solid 2px;
+                    border-color: gray;
+                    border-radius: 0;
+                    &:focus {
+                        border-color: blue;
+                        outline: none;
+                    }
+                    &:not(:placeholder-shown) {
+                        border-color: rgb(0, 180, 0)
+                    }
+                }
+            }
+            .rowName {
+                text-align: left;
+            }
+
+        }
+    }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+table {
+    display: block;
+    margin-top: 20px;
+    border-collapse: collapse;
+
+}
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+}

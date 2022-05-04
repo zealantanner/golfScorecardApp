@@ -5,19 +5,215 @@
     <title>Template</title>
     <link id="icon" rel="icon" href="images/golfBall.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Golf Score App</title>
 </head>
 <body>
+    <img style="opacity: 0;" id="image" src="">
     <div id="contentContainer">
-        <div class="card">
-            <img src="images/thing.png">
-            <h1>Golf Place Name</h1>
-            <div class="buttons">
-                <button onclick="selectCourse(this)">Select Course</button>
-            </div>
-        </div>
     </div>
+    <h1 id='location'>Choose a location</h1>
+    <table onkeyup="renderTotals()" onkeydown="renderTotals()" onkeypress="renderTotals()" onfocus="renderTotals()" id="theTable">
+        <tr id="topRow">
+            <th class="rowName">HOLE</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <th>OUT</th>
+            <th id="initials" rowspan="3">INITIALS</th>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <th>IN</th>
+            <th>TOT</th>
+        </tr>
+        <tr id="proRow">
+            <th class="rowName">Pro</th>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <th class="out"></th>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <th class="in"></th>
+            <th class="tot"></th>
+        </tr>
+        <tr id="hanRow">
+            <th class="rowName">Handicap</th>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="player" id="player1Row">
+            <th class="rowName inputVal playerName"><input type="text" placeholder="Player 1"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="out"></th>
+            <th class="playerInitials"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="in"></th>
+            <th class="tot"></th>
+        </tr>
+        <tr class="player" id="player2Row">
+            <th class="rowName inputVal playerName"><input type="text" placeholder="Player 2"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="out"></th>
+            <th class="playerInitials"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="in"></th>
+            <th class="tot"></th>
+        </tr>
+        <tr class="player" id="player3Row">
+            <th class="rowName inputVal playerName"><input type="text" placeholder="Player 3"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="out"></th>
+            <th class="playerInitials"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="in"></th>
+            <th class="tot"></th>
+        </tr>
+        <tr class="player" id="player4Row">
+            <th class="rowName inputVal playerName"><input type="text" placeholder="Player 4"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="out"></th>
+            <th class="playerInitials"></th>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <td class="inputVal val"><input type="number" placeholder=" "></td>
+            <th class="in"></th>
+            <th class="tot"></th>
+        </tr>
+        <tr id="parRow">
+            <th class="rowName">Par</th>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <th class="out"></th>
+            <td></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <td class="val"></td>
+            <th class="in"></th>
+            <th class="tot"></th>
+        </tr>
+    </table>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script type="text/Javascript" src="js/main.js"></script>
+    <script type="text/Javascript" src="js/index.js"></script>
 </body>
 </html>
